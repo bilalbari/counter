@@ -12,14 +12,14 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            counter: 0,
+            counter: 98,
             intervalid:0
         };
     }
     change(value) {
         let q = this.state.counter;
         if(this.state.intervalid !== 0)
-            clearInterval((this.state.intervalid));
+            clearInterval(this.state.intervalid);
         if (value === '+')
         {
             if (q === 100)
@@ -37,15 +37,20 @@ class App extends Component {
         else if(value === '>>')
         {
             if(this.state.counter < 100)
-            {
-                this.state.intervalid=setInterval(()=>{this.setState({counter:this.state.counter+1});},1000);
-            }
+                this.state.intervalid=setInterval(()=>{if(this.state.counter<100){this.setState({counter:this.state.counter+1})}
+                else{this.setState({counter:0})}},1000);
         }
-        else{
-            if(this.state.counter>0){
-                this.state.intervalid=setInterval(()=>{this.setState({counter:this.state.counter-1});},1000);
-            }
+        else if(value === '<<')
+        {
+            this.state.intervalid=setInterval(()=>{if(this.state.counter>0){this.setState({counter:this.state.counter-1})}
+                else{this.setState({counter:100})}},1000);
+
         }
+        else
+        {
+            clearInterval(this.state.intervalid);
+        }
+
     }
     render() {
         return (

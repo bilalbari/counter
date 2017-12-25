@@ -18,6 +18,10 @@ const MyButton = (props) => {
             props.onclick('<<')
         }}> contdiff
         </button>
+        <button type="button" onClick={() => {
+            props.onclick('exit')
+        }}> exit
+        </button>
     </div>
 };
 

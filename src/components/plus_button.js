@@ -1,0 +1,24 @@
+import React from 'react';
+
+const MyButton = (props) => {
+    return <div>
+        <button type="button" onClick={() => {
+            props.onclick('-')
+        }}> --
+        </button>
+        <button type="button" onClick={() => {
+            props.onclick('+')
+        }}> ++
+        </button>
+        <button type="button" onClick={() => {
+            props.onclick('>>')
+        }}> contsum
+        </button>
+        <button type="button" onClick={() => {
+            props.onclick('<<')
+        }}> contdiff
+        </button>
+    </div>
+};
+
+export default MyButton;
